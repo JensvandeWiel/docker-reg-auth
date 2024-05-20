@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "38559db1-9eb3-4825-b06c-b9e34821b89c",
+		"name": "New Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22819194",
+		"_collection_link": "https://jensvandewiel.postman.co/workspace/paca~692da542-a028-42df-bb5d-46611c0ca87b/collection/22819194-38559db1-9eb3-4825-b06c-b9e34821b89c?action=share&source=collection_link&creator=22819194"
+	},
+	"item": [
+		{
+			"name": "catalogrequest",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6IklVTlI6TTVPMjpYVDJPOk5MVEE6RVRTUTpGQkoyOjZFNUM6MzdNUzo3UTdSOktGTEk6UTY3STpNNE1UIn0.eyJpc3MiOiJ0ZXN0Iiwic3ViIjoiamVucyIsImF1ZCI6InRlc3QiLCJleHAiOjE3MTYyMTc0NzksIm5iZiI6MTcxNjIxMzg2OSwiaWF0IjoxNzE2MjEzODc5LCJqdGkiOiI4NDUxMTkyOTk1NzA2NzA5MTgzIiwiYWNjZXNzIjpbeyJ0eXBlIjoicmVnaXN0cnkiLCJuYW1lIjoiY2F0YWxvZyIsImFjdGlvbnMiOlsiKiJdfV19.W7omjWgCcaRti3DwlQ-Qdf4NoWeX3VcV-_cIDqfar4eNcoM6KK07gdlA-KgWYdjwaC0JRTOIHaIVPJdapAqDo2S3F0Tuc31HqQ2iDCee1YCeyNxAEpsHiz3QNvKqLAu43WEEWxWnKCJIE2MSSnuwNCbIAsm44VvtJdVK2xpPCpjXe8NEsrvApNbeNRT0BxCK6MPQ_n_l1JQwSHsxwNODAfF_LoYQJ6cTYKtW59npqwlBMiisGqZYXI31yKTTVvB4j6OVCalbZ6FN9yFfIyyJ6P4PiNi9nQ9K5I60o2nTyn9PQ_7dNuImDv8bsOVpIZRaCVVbXYEj-jS1Fquly_TerA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://localhost:5000/v2/_catalog",
+					"protocol": "https",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"v2",
+						"_catalog"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "tokenrequest",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "username",
+							"value": "jens",
+							"type": "string"
+						},
+						{
+							"key": "password",
+							"value": "bob",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/v1/registry/auth?account=jens&service=test&scope=registry:catalog:*",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"v1",
+						"registry",
+						"auth"
+					],
+					"query": [
+						{
+							"key": "account",
+							"value": "jens"
+						},
+						{
+							"key": "service",
+							"value": "test"
+						},
+						{
+							"key": "scope",
+							"value": "registry:catalog:*"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
