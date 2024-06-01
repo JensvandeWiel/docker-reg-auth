@@ -11,3 +11,4 @@ Help is wanted since the spec is not fully implemented yet, but it is usable.
 
 # Todo
 - [] Add refresh_token support and add it to the response
+- [] Add support for multiple scopes
