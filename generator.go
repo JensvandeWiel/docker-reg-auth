@@ -24,8 +24,11 @@ type TokenOptions struct {
 
 // Token represents a token and an access token.
 type Token struct {
-	Token       string `json:"token"`
-	AccessToken string `json:"access_token"`
+	Token        string `json:"token"`
+	AccessToken  string `json:"access_token"`
+	IssuedAt     int64  `json:"issued_at"`
+	ExpiresIn    int64  `json:"expires_in"`
+	RefreshToken string `json:"refresh_token,omitempty"`
 }
 
 // TokenGenerator is an interface for generating tokens.
@@ -123,6 +126,8 @@ func (g *DefaultTokenGenerator) GenerateToken(req *AuthorizationRequest, actions
 	return &Token{
 		Token:       tok,
 		AccessToken: tok,
+		IssuedAt:    now,
+		ExpiresIn:   tokenOptions.ExpiresIn,
 	}, nil
 }
 

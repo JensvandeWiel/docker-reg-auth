@@ -11,6 +11,3 @@ Help is wanted since the spec is not fully implemented yet, but it is usable.
 
 # Todo
 - [] Add refresh_token support and add it to the response
-- [] Add client_id support
-- [] Add expires_in to response
-- [] Add issued_at to response

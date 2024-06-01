@@ -1,6 +1,7 @@
 package main
 
 import (
+	"context"
 	registry "github.com/JensvandeWiel/docker-reg-auth"
 	"github.com/labstack/echo/v4"
 	"log/slog"
@@ -35,7 +36,7 @@ func (h *RegistryAuthHandler) AuthHandle(ctx echo.Context) error {
 		})
 	}
 
-	if err := h.authenticator.Authenticate(usr, passwd); err != nil {
+	if err := h.authenticator.Authenticate(context.Background(), usr, passwd); err != nil {
 		return ctx.JSON(401, HttpError{
 			Code:    401,
 			Message: "Unauthorized",
@@ -64,7 +65,7 @@ func (h *RegistryAuthHandler) AuthHandle(ctx echo.Context) error {
 
 	slog.Info("Parsed authorization request", "request", req)
 
-	actions, err := h.authorizer.Authorize(req)
+	actions, err := h.authorizer.Authorize(context.Background(), req)
 	if err != nil {
 		return ctx.JSON(401, HttpError{
 			Code:    401,

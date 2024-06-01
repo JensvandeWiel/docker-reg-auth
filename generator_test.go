@@ -2,11 +2,13 @@ package registry
 
 import (
 	"github.com/distribution/distribution/registry/auth/token"
+	"github.com/stretchr/testify/assert"
 	"testing"
 )
 
 func TestDefaultTokenGenerator_GenerateToken(t *testing.T) {
-	g := NewDefaultTokenGenerator(".devcerts/RootCA.crt", ".devcerts/RootCA.key")
+	g, err := NewDefaultTokenGenerator(".devcerts/RootCA.crt", ".devcerts/RootCA.key")
+	assert.NoError(t, err)
 	tokOpt := &TokenOptions{
 		Issuer:    "paca-node",
 		Audience:  "registry",
